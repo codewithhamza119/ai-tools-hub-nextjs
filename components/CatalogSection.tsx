@@ -2,24 +2,23 @@
 
 import { useState } from 'react';
 import { useLanguage } from '@/lib/i18n';
-import {
-  categories,
-  categoryLabel,
-  productsByCategory,
-  type CategoryId,
-  type Product,
-} from '@/lib/products';
+import { categories, categoryLabel, type CategoryId, type Product } from '@/lib/products';
 import ProductGrid from './ProductGrid';
 import ProductModal from './ProductModal';
 import Reveal from './Reveal';
 
 type Filter = CategoryId | 'all';
 
+interface CatalogSectionProps {
+  products: Product[];
+}
+
 /**
  * Product catalog section: filter pills + category-grouped product grid,
- * with the product detail modal hosted here.
+ * with the product detail modal hosted here. Product data comes from the
+ * database (via props) — never from a static list.
  */
-export default function CatalogSection() {
+export default function CatalogSection({ products }: CatalogSectionProps) {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<Filter>('all');
   const [selected, setSelected] = useState<Product | null>(null);
@@ -27,6 +26,11 @@ export default function CatalogSection() {
   const groups = categories.filter(
     (c): c is { id: CategoryId; label: string } => c.id !== 'all',
   );
+
+  const ofCategory = (cat: CategoryId): Product[] =>
+    products
+      .filter((p) => p.category === cat)
+      .sort((a, b) => a.sortOrder - b.sortOrder);
 
   return (
     <section id="products" className="py-20">
@@ -68,12 +72,12 @@ export default function CatalogSection() {
               {groups.map((g) => (
                 <Reveal key={g.id}>
                   <h3 className="mb-5 text-xl font-bold">{categoryLabel(g.id)}</h3>
-                  <ProductGrid products={productsByCategory(g.id)} onSelect={setSelected} />
+                  <ProductGrid products={ofCategory(g.id)} onSelect={setSelected} />
                 </Reveal>
               ))}
             </div>
           ) : (
-            <ProductGrid products={productsByCategory(filter)} onSelect={setSelected} />
+            <ProductGrid products={ofCategory(filter)} onSelect={setSelected} />
           )}
         </div>
       </div>

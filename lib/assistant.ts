@@ -58,24 +58,25 @@ interface AliasHit {
   label: string;
 }
 
-const CAPCUT_IDS = ['capcut-7d', 'capcut-1m-std', 'capcut-1m-credits', 'capcut-6m'];
-const CANVA_IDS = ['canva-3m', 'canva-6m', 'canva-1y', 'canva-18m'];
-const NORDVPN_IDS = ['nordvpn-1m', 'nordvpn-3m'];
-const GEMINI_IDS = ['gemini-ai-plus', 'gemini-shared-12'];
+const CAPCUT_IDS = ['capcut-7d', 'capcut-standard-1m', 'capcut-pro-1600-1m', 'capcut-6m'];
+const NORDVPN_IDS = ['nord-vpn'];
+const GEMINI_IDS = ['gemini-semi-private-12m', 'gemini-shared-12m'];
+const MUSE_AI_IDS = ['muse-ai-1b-15d', 'muse-ai-1b-25d', 'muse-ai-2b-15d', 'muse-ai-2b-25d'];
 
 const ALIASES: { patterns: RegExp[]; resolve: () => AliasHit }[] = [
-  { patterns: [/\bmuse\b/], resolve: () => ({ products: must(['muse-ai']), label: 'Muse AI' }) },
+  { patterns: [/\bmuse\b/], resolve: () => ({ products: must(MUSE_AI_IDS), label: 'Muse AI' }) },
   { patterns: [/\bgemini\b/], resolve: () => ({ products: must(GEMINI_IDS), label: 'Gemini' }) },
-  { patterns: [/\bveo\b/, /\bflow\b/], resolve: () => ({ products: must(['gemini-pro-18']), label: 'Gemini Pro / VEO 3 + Flow AI' }) },
+  { patterns: [/\bveo\b/, /\bflow\b/], resolve: () => ({ products: must(['gemini-pro-18m']), label: 'Gemini Pro' }) },
   { patterns: [/\bcapcut\b/, /\bcap cut\b/], resolve: () => ({ products: must(CAPCUT_IDS), label: 'CapCut Pro' }) },
-  { patterns: [/\bcanva\b/], resolve: () => ({ products: must(CANVA_IDS), label: 'Canva Pro' }) },
-  { patterns: [/\bfigma\b/], resolve: () => ({ products: must(['figma-edu']), label: 'Figma Pro Edu' }) },
-  { patterns: [/\btiktok\b/, /\btik tok\b/], resolve: () => ({ products: must(['tiktok-uk']), label: 'TikTok UK Account' }) },
+  { patterns: [/\bcanva\b/], resolve: () => ({ products: [], notInCatalog: true, label: 'Canva Pro' }) },
+  { patterns: [/\bfigma\b/], resolve: () => ({ products: must(['figma']), label: 'Figma' }) },
+  { patterns: [/\btiktok\b/, /\btik tok\b/], resolve: () => ({ products: [], notInCatalog: true, label: 'TikTok UK Account' }) },
   { patterns: [/\bnordvpn\b/, /\bnord\b/, /\bvpn\b/], resolve: () => ({ products: must(NORDVPN_IDS), label: 'NordVPN' }) },
-  { patterns: [/\budemy\b/], resolve: () => ({ products: must(['udemy-1m']), label: 'Udemy Personal Plan' }) },
+  { patterns: [/\bsurfshark\b/], resolve: () => ({ products: must(['surfshark']), label: 'Surfshark' }) },
+  { patterns: [/\budemy\b/], resolve: () => ({ products: must(['udemy']), label: 'Udemy' }) },
   {
     patterns: [/\bchatgpt\b/, /\bchat gpt\b/, /\bgpt\b/],
-    resolve: () => ({ products: [], notInCatalog: true, label: 'ChatGPT' }),
+    resolve: () => ({ products: must(['chatgpt-plus-1m']), label: 'ChatGPT Plus' }),
   },
 ];
 
@@ -133,13 +134,27 @@ function warrantyText(p: Product, lang: ChatLang): string {
 
 /** "• Name (Duration) — Rs. X (Regular: Rs. Y) · N Days Replacement Warranty" */
 function productLine(p: Product, lang: ChatLang): string {
-  const regular = p.regularPrice > p.price ? ` (Regular: ${formatPrice(p.regularPrice)})` : '';
-  return `• ${p.name} (${p.duration}) — ${formatPrice(p.price)}${regular} · ${warrantyText(p, lang)}`;
+  const priceTxt =
+    p.price != null
+      ? formatPrice(p.price)
+      : lang === 'en'
+        ? 'Price on request'
+        : 'Price ke liye rabta karein';
+  const regular =
+    p.regularPrice != null && p.price != null && p.regularPrice > p.price
+      ? ` (Regular: ${formatPrice(p.regularPrice)})`
+      : '';
+  const stockTxt = p.outOfStock
+    ? lang === 'en'
+      ? ' — OUT OF STOCK'
+      : ' — STOCK KHATAM'
+    : '';
+  return `• ${p.name} (${p.duration}) — ${priceTxt}${regular}${stockTxt} · ${warrantyText(p, lang)}`;
 }
 
 function alternativeLines(): string {
-  return must(['muse-ai', 'gemini-ai-plus', 'gemini-pro-18'])
-    .map((p) => `• ${p.name} (${p.duration}) — ${formatPrice(p.price)}`)
+  return must(['muse-ai-1b-15d', 'gemini-semi-private-12m', 'gemini-pro-18m'])
+    .map((p) => `• ${p.name} (${p.duration}) — ${p.price != null ? formatPrice(p.price) : 'Price on request'}`)
     .join('\n');
 }
 
@@ -155,11 +170,18 @@ function notInCatalogReply(label: string, lang: ChatLang): BotReply {
 function availabilityReply(hit: AliasHit, lang: ChatLang): BotReply {
   if (hit.notInCatalog) return notInCatalogReply(hit.label, lang);
   const multi = hit.products.length > 1;
-  const head: Localized = {
-    en: multi ? 'Yes! Here are the available plans:' : 'Yes! It is available:',
-    ur: multi ? 'Ji haan! Ye plans available hain:' : 'Ji haan! Ye available hai:',
-    roman: multi ? 'Haan! Ye plans available hain:' : 'Haan! Ye available hai:',
-  };
+  const allOut = hit.products.length > 0 && hit.products.every((p) => p.outOfStock);
+  const head: Localized = allOut
+    ? {
+        en: 'Currently out of stock:',
+        ur: 'Filhal stock mein nahi hai:',
+        roman: 'Filhal stock mein nahi hai:',
+      }
+    : {
+        en: multi ? 'Yes! Here are the available plans:' : 'Yes! It is available:',
+        ur: multi ? 'Ji haan! Ye plans available hain:' : 'Ji haan! Ye available hai:',
+        roman: multi ? 'Haan! Ye plans available hain:' : 'Haan! Ye available hai:',
+      };
   const tail: Localized = {
     en: 'Shall I help you order it?',
     ur: 'Kya main order mein aap ki madad karoon?',

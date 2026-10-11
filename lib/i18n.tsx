@@ -40,6 +40,10 @@ const dict: Record<string, { en: string; roman: string }> = {
   'catalog.viewDetails': { en: 'View Details', roman: 'Details Dekhein' },
   'catalog.addToCart': { en: 'Add to Cart', roman: 'Cart mein Daalein' },
   'catalog.added': { en: 'Added!', roman: 'Add ho gaya!' },
+  'catalog.outOfStock': { en: 'Out of Stock', roman: 'Stock Khatam' },
+  'catalog.priceOnRequest': { en: 'Price on request', roman: 'Price ke liye rabta karein' },
+  'catalog.inStock': { en: 'in stock', roman: 'stock mein mojood' },
+  'catalog.askWhatsapp': { en: 'Ask on WhatsApp', roman: 'WhatsApp par Poochein' },
 
   'modal.features': { en: 'Features', roman: 'Features' },
   'modal.activation': { en: 'Activation Process', roman: 'Activation ka Tareeqa' },

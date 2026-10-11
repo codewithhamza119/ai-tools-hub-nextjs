@@ -1,0 +1,274 @@
+[
+  {
+    "activation": [
+      "Activation via provided email or personal Gmail",
+      "OTP login steps"
+    ],
+    "category": "AI Subscription",
+    "duration": "Plan access",
+    "features": [
+      "1 billion credits plan access",
+      "Website building",
+      "Coding assistance",
+      "Media generation",
+      "Research assistance",
+      "Automation",
+      "WhatsApp and voice capabilities"
+    ],
+    "id": "muse-ai-meta-1b",
+    "name": "Muse AI by Meta (1 Billion Credits)",
+    "note": "15-day account-access warranty. Generation quality / platform errors are not warranty issues.",
+    "price": 999,
+    "regularPrice": 1499,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "AI Subscription",
+    "duration": "12 Months",
+    "features": [
+      "All Gemini AI features"
+    ],
+    "id": "gemini-ai-plus-12mo",
+    "name": "Gemini AI Plus Plan",
+    "note": "Flow AI is NOT included in this package. Replacement warranty period: 10 months.",
+    "price": 2500,
+    "regularPrice": 3000,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "AI Subscription",
+    "duration": "12 Months",
+    "features": [
+      "All Gemini AI features (same as Gemini AI Plus 12 Months)"
+    ],
+    "id": "gemini-shared-12mo",
+    "name": "Gemini 12 Months — Shared Plan",
+    "note": "Replacement warranty period: 10 months.",
+    "price": 2500,
+    "regularPrice": 3000,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Voucher-based personal Gmail activation"
+    ],
+    "category": "AI Subscription",
+    "duration": "18 Months",
+    "features": [
+      "NotebookLM",
+      "Flow AI / Veo 3",
+      "Antigravity",
+      "Whisk",
+      "5 TB storage",
+      "18,000 Flow credits",
+      "1,000 monthly credits",
+      "Advanced Gemini models",
+      "Image and video features"
+    ],
+    "id": "gemini-pro-veo3-18mo",
+    "name": "Gemini Pro / VEO 3 + Flow AI",
+    "price": 599,
+    "regularPrice": 799,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Login: mobile email/password first, then desktop QR authorization",
+      "Max 2 devices"
+    ],
+    "category": "Video Editing",
+    "duration": "7 Days",
+    "features": [
+      "All CapCut Pro features unlocked"
+    ],
+    "id": "capcut-pro-7d",
+    "name": "CapCut Pro",
+    "note": "Warranty void if: browser/direct laptop-first login, credential sharing, changing security settings, or a third device.",
+    "price": 349,
+    "regularPrice": 400,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Login: mobile email/password first, then desktop QR authorization",
+      "Max 2 devices"
+    ],
+    "category": "Video Editing",
+    "duration": "1 Month",
+    "features": [
+      "All Pro features unlocked",
+      "No credits included"
+    ],
+    "id": "capcut-pro-standard-1mo",
+    "name": "CapCut Pro — Standard",
+    "note": "Replacement warranty period: 25 days. Warranty void if: browser/direct laptop-first login, credential sharing, changing security settings, or a third device.",
+    "price": 799,
+    "regularPrice": 1000,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Login: mobile email/password first, then desktop QR authorization",
+      "Max 2 devices"
+    ],
+    "category": "Video Editing",
+    "duration": "1 Month",
+    "features": [
+      "All Pro features unlocked",
+      "1,600 credits included"
+    ],
+    "id": "capcut-pro-1600-1mo",
+    "name": "CapCut Pro — 1,600 Credits",
+    "note": "Flow AI credits NOT included. Warranty void if: browser/direct laptop-first login, credential sharing, changing security settings, or a third device.",
+    "price": 999,
+    "regularPrice": 1500,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Login: mobile email/password first, then desktop QR authorization",
+      "Max 2 devices"
+    ],
+    "category": "Video Editing",
+    "duration": "6 Months",
+    "features": [
+      "All CapCut Pro features unlocked"
+    ],
+    "id": "capcut-pro-6mo",
+    "name": "CapCut Pro",
+    "note": "Warranty void if: browser/direct laptop-first login, credential sharing, changing security settings, or a third device.",
+    "price": 5000,
+    "regularPrice": 5000,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Design",
+    "duration": "3 Months",
+    "features": [
+      "Full Canva Pro access"
+    ],
+    "id": "canva-pro-3mo",
+    "name": "Canva Pro",
+    "note": "Replacement warranty period: 1 month.",
+    "price": 399,
+    "regularPrice": 399,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Design",
+    "duration": "6 Months",
+    "features": [
+      "Full Canva Pro access"
+    ],
+    "id": "canva-pro-6mo",
+    "name": "Canva Pro",
+    "note": "Replacement warranty period: 3 months.",
+    "price": 599,
+    "regularPrice": 599,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Design",
+    "duration": "1 Year",
+    "features": [
+      "Full Canva Pro access"
+    ],
+    "id": "canva-pro-1yr",
+    "name": "Canva Pro",
+    "price": 699,
+    "regularPrice": 1000,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Design",
+    "duration": "1.5 Years",
+    "features": [
+      "Full Canva Pro access"
+    ],
+    "id": "canva-pro-1-5yr",
+    "name": "Canva Pro",
+    "note": "Replacement warranty period: 12 months.",
+    "price": 999,
+    "regularPrice": 1500,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Design",
+    "duration": "2 Years",
+    "features": [
+      "3,000 credits per month",
+      "Figma Pro Edu access"
+    ],
+    "id": "figma-pro-edu-2yr",
+    "name": "Figma Pro Edu",
+    "price": 4000,
+    "regularPrice": 4000,
+    "warranty": null
+  },
+  {
+    "activation": [
+      "Paid UK VPN required"
+    ],
+    "category": "Social / VPN / Learning",
+    "duration": "One-time purchase",
+    "features": [
+      "Fresh Gmail (18+, unused, no 2FA)",
+      "UK region features per TikTok policy",
+      "Organic growth"
+    ],
+    "id": "tiktok-uk-account",
+    "name": "TikTok UK Account",
+    "note": "Client responsible for policy violations.",
+    "price": 799,
+    "regularPrice": 1500,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Social / VPN / Learning",
+    "duration": "1 Month",
+    "features": [
+      "Full NordVPN access"
+    ],
+    "id": "nordvpn-1mo",
+    "name": "NordVPN",
+    "price": 549,
+    "regularPrice": 600,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Social / VPN / Learning",
+    "duration": "3 Months",
+    "features": [
+      "Full NordVPN access"
+    ],
+    "id": "nordvpn-3mo",
+    "name": "NordVPN",
+    "price": 1499,
+    "regularPrice": 1800,
+    "warranty": null
+  },
+  {
+    "activation": [],
+    "category": "Social / VPN / Learning",
+    "duration": "1 Month",
+    "features": [
+      "Full email access",
+      "Full Udemy Personal Plan course library"
+    ],
+    "id": "udemy-personal-1mo",
+    "name": "Udemy Personal Plan",
+    "note": "No warranty — buy at own risk.",
+    "price": 999,
+    "regularPrice": 1500,
+    "warranty": null
+  }
+]
