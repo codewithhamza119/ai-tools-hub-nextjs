@@ -99,7 +99,7 @@ function ProductForm({
           <label className={labelCls}>
             Category
             <select className={inputCls} value={draft.category} onChange={(e) => set('category')(e.target.value)}>
-              {(['ai', 'video', 'design', 'social'] as CategoryId[]).map((c) => (
+              {(['ai', 'video', 'design', 'social', 'creator'] as CategoryId[]).map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>

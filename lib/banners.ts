@@ -11,6 +11,8 @@ const BANNERS: { prefix: string; src: string }[] = [
   { prefix: 'nord', src: '/images/banners/vpn.jpg' },
   { prefix: 'surfshark', src: '/images/banners/surfshark.png' },
   { prefix: 'udemy', src: '/images/banners/learning.jpg' },
+  { prefix: 'canva', src: '/images/banners/canva.jpg' },
+  { prefix: 'tiktok', src: '/images/banners/tiktok.png' },
 ];
 
 export function bannerFor(productId: string): string | null {

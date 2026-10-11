@@ -56,7 +56,11 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
   const box2: [string, string] = product.warranty
     ? [
         String(product.warranty.value),
-        `${product.warranty.unit === 'days' ? 'WARRANTY DAYS' : 'WARRANTY MONTHS'}`,
+        product.warranty.unit === 'days'
+          ? 'WARRANTY DAYS'
+          : product.warranty.unit === 'years'
+            ? 'WARRANTY YEARS'
+            : 'WARRANTY MONTHS',
       ]
     : ['—', 'WARRANTY'];
 

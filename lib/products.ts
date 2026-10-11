@@ -1,10 +1,10 @@
 import { SEED_PRODUCTS } from './seed-catalog';
 
-export type CategoryId = 'ai' | 'video' | 'design' | 'social';
+export type CategoryId = 'ai' | 'video' | 'design' | 'social' | 'creator';
 
 export interface Warranty {
   value: number;
-  unit: 'days' | 'months';
+  unit: 'days' | 'months' | 'years';
 }
 
 export interface Product {
@@ -43,6 +43,7 @@ export const categories: { id: CategoryId | 'all'; label: string }[] = [
   { id: 'video', label: 'Video Editing' },
   { id: 'design', label: 'Design Tools' },
   { id: 'social', label: 'Social, VPN & Learning' },
+  { id: 'creator', label: 'Creator Accounts' },
 ];
 
 export function categoryLabel(id: CategoryId): string {

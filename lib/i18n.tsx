@@ -201,9 +201,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const t = (key: string): string => dict[key]?.[lang] ?? dict[key]?.en ?? key;
 
   const warrantyLabel = (w: Warranty): string => {
-    const unit = w.unit === 'days'
-      ? lang === 'roman' ? 'Din' : 'Days'
-      : lang === 'roman' ? 'Maah' : 'Months';
+    const unit =
+      w.unit === 'days'
+        ? lang === 'roman' ? 'Din' : 'Days'
+        : w.unit === 'years'
+          ? w.value === 1
+            ? lang === 'roman' ? 'Saal' : 'Year'
+            : lang === 'roman' ? 'Saal' : 'Years'
+          : lang === 'roman' ? 'Maah' : 'Months';
     return `${w.value} ${unit} Replacement Warranty`;
   };
 
