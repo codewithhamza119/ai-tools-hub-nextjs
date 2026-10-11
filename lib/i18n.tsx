@@ -109,6 +109,15 @@ const dict: Record<string, { en: string; roman: string }> = {
   'checkout.binanceUid': { en: 'Binance UID', roman: 'Binance UID' },
   'checkout.copy': { en: 'Copy', roman: 'Copy' },
   'checkout.copied': { en: 'Copied!', roman: 'Copy ho gaya!' },
+  'checkout.whatsappTitle': {
+    en: 'Order on WhatsApp',
+    roman: 'WhatsApp par order karein',
+  },
+  'checkout.whatsappDesc': {
+    en: 'Fastest way to order — chat with us, confirm payment and get delivery.',
+    roman: 'Sab se tez tareeqa — hum se baat karein, payment confirm karein aur delivery payein.',
+  },
+  'checkout.whatsappBtn': { en: 'Chat on WhatsApp', roman: 'WhatsApp par baat karein' },
   'checkout.note': {
     en: 'After paying, send the screenshot on WhatsApp: 03493634347',
     roman: 'Pay karne ke baad screenshot WhatsApp par bhejein: 03493634347',
@@ -201,15 +210,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const t = (key: string): string => dict[key]?.[lang] ?? dict[key]?.en ?? key;
 
   const warrantyLabel = (w: Warranty): string => {
-    const unit =
-      w.unit === 'days'
-        ? lang === 'roman' ? 'Din' : 'Days'
-        : w.unit === 'years'
-          ? w.value === 1
-            ? lang === 'roman' ? 'Saal' : 'Year'
-            : lang === 'roman' ? 'Saal' : 'Years'
-          : lang === 'roman' ? 'Maah' : 'Months';
-    return `${w.value} ${unit} Replacement Warranty`;
+    if (w.unit === 'days')
+      return `${w.value} ${lang === 'roman' ? 'Din' : 'Days'} Replacement Warranty`;
+    if (w.unit === 'years')
+      return w.value === 1
+        ? `1 ${lang === 'roman' ? 'Saal' : 'Year'} Replacement Warranty`
+        : `${w.value} ${lang === 'roman' ? 'Saal' : 'Years'} Replacement Warranty`;
+    return w.value === 1
+      ? `1 ${lang === 'roman' ? 'Maah' : 'Month'} Replacement Warranty`
+      : `${w.value} ${lang === 'roman' ? 'Maah' : 'Months'} Replacement Warranty`;
   };
 
   return <Ctx.Provider value={{ lang, setLang, t, warrantyLabel }}>{children}</Ctx.Provider>;

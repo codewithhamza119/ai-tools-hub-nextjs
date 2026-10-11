@@ -7,13 +7,13 @@ interface ProductArtProps {
 }
 
 /**
- * Full-bleed 16:10 product artwork.
+ * Full-bleed 16:9 product artwork.
  * Renders the product image when set, otherwise the family banner image,
  * otherwise a gradient monogram with a soft radial highlight.
  * Always clipped to its own bounds.
  */
 export default function ProductArt({ product, className = '' }: ProductArtProps) {
-  const base = `relative aspect-[16/10] overflow-hidden ${className}`.trim();
+  const base = `relative aspect-[16/9] overflow-hidden ${className}`.trim();
   const src = product.image || bannerFor(product.id);
 
   if (src) {
