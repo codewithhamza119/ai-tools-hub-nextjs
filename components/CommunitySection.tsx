@@ -61,7 +61,7 @@ export default function CommunitySection() {
         {cards.map((card, i) => (
           <Reveal key={card.href} delayMs={i * 80}>
             <div className="glass flex h-full flex-col rounded-3xl p-6">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-500/25">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-blue-500 text-white shadow-lg shadow-emerald-500/25">
                 {card.icon === 'whatsapp' ? <WhatsappIcon /> : <FacebookIcon />}
               </div>
               <h3 className="text-lg font-bold">{card.title}</h3>
