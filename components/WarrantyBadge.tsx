@@ -17,7 +17,7 @@ export default function WarrantyBadge({ product }: WarrantyBadgeProps) {
 
   if (product.warranty) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-400/60 bg-teal-400/10 px-3 py-1 text-xs font-bold text-teal-300">
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/60 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-300">
         <svg
           className="h-4 w-4"
           viewBox="0 0 24 24"

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #04071a;
+  background-color: #05081a;
   color: #f1f5f9; /* slate-100 */
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -17,9 +17,9 @@ body {
   border-radius: 1rem;
 }
 
-/* Animated gradient headline text */
+/* Animated gradient headline text — purple to blue */
 .grad-text {
-  background: linear-gradient(90deg, #a78bfa, #22d3ee, #60a5fa, #a78bfa);
+  background: linear-gradient(90deg, #a78bfa, #3b82f6, #60a5fa, #a78bfa);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -27,13 +27,13 @@ body {
   animation: gradientPan 8s ease infinite;
 }
 
-/* Primary CTA button */
+/* Primary CTA button — purple to blue */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
   color: #fff;
   font-weight: 700;
   border-radius: 0.75rem;
@@ -41,12 +41,52 @@ body {
   transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
 }
 .btn-primary:hover {
-  filter: brightness(1.15) hue-rotate(-12deg);
+  filter: brightness(1.15);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(34, 211, 238, 0.45);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.45);
 }
 .btn-primary:active {
   transform: translateY(0);
+}
+
+/* Gradient pill button (hero / cards) */
+.btn-gradient-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.8rem 1.75rem;
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-gradient-pill:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(99, 102, 241, 0.5);
+}
+
+/* Outlined pill button */
+.btn-outline-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.8rem 1.75rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+.btn-outline-pill:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
 }
 
 /* Ghost button */
@@ -88,6 +128,15 @@ body {
   transform: translateY(0);
 }
 
+/* Small translucent spec box used on product cards */
+.spec-box {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -105,19 +154,19 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #04071a;
+  background: #05081a;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #22d3ee);
+  background: linear-gradient(180deg, #8b5cf6, #3b82f6);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a78bfa, #67e8f9);
+  background: linear-gradient(180deg, #a78bfa, #60a5fa);
 }
 
 /* Selection */
 ::selection {
-  background-color: rgba(34, 211, 238, 0.4);
+  background-color: rgba(99, 102, 241, 0.45);
   color: #fff;
 }
 

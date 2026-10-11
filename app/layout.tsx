@@ -6,11 +6,23 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import AssistantWidget from '@/components/AssistantWidget';
+import LanguageToggle from '@/components/LanguageToggle';
+
+function safeSiteUrl(): URL | undefined {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!raw) return undefined;
+  try {
+    const u = new URL(raw);
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return undefined;
+    if (!u.hostname || u.hostname === 'https:' || raw.trim() === 'https://') return undefined;
+    return u;
+  } catch {
+    return undefined;
+  }
+}
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+  metadataBase: safeSiteUrl(),
   title: {
     default: 'AI Tools HuB — Premium AI Subscriptions & Tools',
     template: '%s · AI Tools HuB',
@@ -58,6 +70,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <CartDrawer />
             <AssistantWidget />
+            {/* Floating language toggle, bottom-left */}
+            <div className="fixed bottom-5 left-5 z-[90]">
+              <LanguageToggle />
+            </div>
           </CartProvider>
         </LanguageProvider>
       </body>

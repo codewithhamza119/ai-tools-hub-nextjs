@@ -13,6 +13,9 @@ const dict: Record<string, { en: string; roman: string }> = {
   'nav.faq': { en: 'FAQ', roman: 'FAQ' },
   'nav.support': { en: 'Support', roman: 'Support' },
   'nav.cart': { en: 'Cart', roman: 'Cart' },
+  'nav.catalog': { en: 'Catalog', roman: 'Catalog' },
+  'nav.howToOrder': { en: 'How to order', roman: 'Order Kaise Karein' },
+  'nav.warranty': { en: 'Warranty', roman: 'Warranty' },
 
   'hero.badge': { en: 'Your One Stop AI Tools Solution', roman: 'Aap ka One Stop AI Tools Solution' },
   'hero.titleA': { en: 'AI Tools', roman: 'AI Tools' },
@@ -23,6 +26,32 @@ const dict: Record<string, { en: string; roman: string }> = {
   },
   'hero.ctaProducts': { en: 'Browse Products', roman: 'Products Dekhein' },
   'hero.ctaWhatsapp': { en: 'Chat on WhatsApp', roman: 'WhatsApp par Baat Karein' },
+  'hero.eyebrow': { en: 'DIGITAL ACCESS · PAKISTAN', roman: 'DIGITAL ACCESS · PAKISTAN' },
+  'hero.subHeadline': {
+    en: 'Pro tools, ready when you are.',
+    roman: 'Pro tools, jab aap ready hon.',
+  },
+  'hero.explore': { en: 'Explore {n} plans', roman: '{n} Plans Dekhein' },
+  'hero.howItWorks': { en: 'See how it works', roman: 'Tareeqa Dekhein' },
+  'hero.statPlans': { en: 'curated plans', roman: 'curated plans' },
+  'hero.statCats': { en: 'tool categories', roman: 'tool categories' },
+  'hero.statSupport': { en: 'claim support', roman: 'claim support' },
+  'hero.catalogEyebrow': { en: 'ONE CATALOG', roman: 'ONE CATALOG' },
+  'hero.catalogTitle': {
+    en: 'Tools for every workflow',
+    roman: 'Har workflow ke liye tools',
+  },
+  'hero.scroll': { en: 'SCROLL TO EXPLORE', roman: 'SCROLL TO EXPLORE' },
+
+  'assistant.ask': { en: 'Ask assistant', roman: 'Assistant Se Poochein' },
+
+  'catalog.eyebrow': { en: 'AI TOOLS HUB · CURRENT PRICE LIST', roman: 'AI TOOLS HUB · CURRENT PRICE LIST' },
+  'catalog.headline': { en: 'Choose your tool.', roman: 'Apna Tool Chunein.' },
+  'catalog.note': {
+    en: 'All prices are in Pakistani rupees. Add one or more plans to your cart, then continue to WhatsApp after sending payment.',
+    roman: 'Tamam prices Pakistani rupees mein hain. Ek ya zyada plans cart mein daalein, phir payment bhej kar WhatsApp par continue karein.',
+  },
+  'catalog.plansCount': { en: 'plans · low to high', roman: 'plans · low to high' },
 
   'trust.t1t': { en: 'Clear plan terms', roman: 'Wazeh Plan Terms' },
   'trust.t1d': { en: 'Transparent durations, prices and warranty on every product.', roman: 'Har product par wazeh duration, price aur warranty.' },

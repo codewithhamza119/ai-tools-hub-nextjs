@@ -128,13 +128,16 @@ export default function AssistantWidget() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Open AI Tools HuB Assistant"
-        className="fixed bottom-5 right-5 z-[90] rounded-full transition hover:scale-105"
+        className="fixed bottom-5 right-5 z-[90] flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 py-2 pl-2 pr-4 shadow-[0_8px_30px_rgba(99,102,241,0.5)] transition hover:scale-105"
       >
         <img
           src="/logo.png"
           alt="AI Tools HuB Assistant"
-          className="h-14 w-14 rounded-full object-cover ring-2 ring-cyan-400/60 shadow-[0_0_24px_rgba(34,211,238,0.45)]"
+          className="h-9 w-9 rounded-full bg-[#0a1030] object-cover"
         />
+        <span className="text-sm font-bold text-white">
+          {chatLang === 'roman' ? 'Assistant Se Poochein' : 'Ask assistant'}
+        </span>
       </button>
 
       {/* Panel */}

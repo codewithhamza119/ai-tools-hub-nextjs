@@ -46,7 +46,7 @@ function CopyButton({ text }: { text: string }) {
       className={`shrink-0 rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
         copied
           ? 'border-emerald-400/50 bg-emerald-400/10 text-emerald-300'
-          : 'border-cyan-400/40 bg-cyan-400/10 text-cyan-300 hover:bg-cyan-400/20'
+          : 'border-blue-400/40 bg-blue-400/10 text-blue-300 hover:bg-blue-400/20'
       }`}
     >
       {copied ? t('checkout.copied') : t('checkout.copy')}
@@ -84,7 +84,7 @@ export default function CheckoutSection() {
           <div className="mt-8 space-y-6">
             {steps.map((step, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 text-sm font-bold text-white shadow-lg shadow-violet-500/25">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-400 text-sm font-bold text-white shadow-lg shadow-violet-500/25">
                   {i + 1}
                 </div>
                 <div>
@@ -104,18 +104,18 @@ export default function CheckoutSection() {
 
             <div className="mt-3 divide-y divide-white/10">
               <div className="py-4">
-                <p className="mb-3 text-sm font-semibold text-cyan-300">Easypaisa</p>
+                <p className="mb-3 text-sm font-semibold text-blue-300">Easypaisa</p>
                 <div className="space-y-3">
                   <Field label={t('checkout.accountTitle')} value="Hamza Shakoor" />
                   <Field label={t('checkout.accountNumber')} value="03493634347" />
                 </div>
               </div>
               <div className="py-4">
-                <p className="mb-3 text-sm font-semibold text-cyan-300">EasyPaisa IBAN</p>
+                <p className="mb-3 text-sm font-semibold text-blue-300">EasyPaisa IBAN</p>
                 <Field label={t('checkout.iban')} value="PK13TMFB0000000043821211" />
               </div>
               <div className="py-4">
-                <p className="mb-3 text-sm font-semibold text-cyan-300">Binance</p>
+                <p className="mb-3 text-sm font-semibold text-blue-300">Binance</p>
                 <div className="space-y-3">
                   <Field label={t('checkout.accountTitle')} value="AI Tools HuB" />
                   <Field label={t('checkout.binanceUid')} value="1283191872" />
@@ -128,7 +128,7 @@ export default function CheckoutSection() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cyan-300 transition hover:text-cyan-200 hover:underline"
+                className="text-blue-300 transition hover:text-blue-200 hover:underline"
               >
                 {t('checkout.note')}
               </a>

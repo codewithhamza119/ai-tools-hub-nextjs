@@ -67,9 +67,15 @@ export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }
 
-/** "Rs. 1,499" */
+/** "Rs. 1,499.00" */
 export function formatPrice(n: number): string {
-  return 'Rs. ' + n.toLocaleString('en-PK');
+  return (
+    'Rs. ' +
+    n.toLocaleString('en-PK', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })
+  );
 }
 
 export const WHATSAPP_NUMBER = '03493634347';

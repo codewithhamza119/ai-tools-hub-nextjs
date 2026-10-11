@@ -62,7 +62,7 @@ export default function CartDrawer() {
           <h2 className="flex items-center gap-2 text-lg font-bold">
             {t('cart.title')}
             {count > 0 && (
-              <span className="rounded-full bg-cyan-400/15 px-2.5 py-0.5 text-xs font-semibold text-cyan-300">
+              <span className="rounded-full bg-blue-400/15 px-2.5 py-0.5 text-xs font-semibold text-blue-300">
                 {count}
               </span>
             )}
@@ -125,7 +125,7 @@ export default function CartDrawer() {
                           type="button"
                           aria-label="Decrease quantity"
                           onClick={() => setQty(item.product.id, item.qty - 1)}
-                          className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-sm text-slate-300 transition hover:border-cyan-400/50 hover:text-white"
+                          className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-sm text-slate-300 transition hover:border-blue-400/50 hover:text-white"
                         >
                           −
                         </button>
@@ -134,12 +134,12 @@ export default function CartDrawer() {
                           type="button"
                           aria-label="Increase quantity"
                           onClick={() => setQty(item.product.id, item.qty + 1)}
-                          className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-sm text-slate-300 transition hover:border-cyan-400/50 hover:text-white"
+                          className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-sm text-slate-300 transition hover:border-blue-400/50 hover:text-white"
                         >
                           +
                         </button>
                       </div>
-                      <span className="text-sm font-bold text-cyan-300">
+                      <span className="text-sm font-bold text-blue-300">
                         {formatPrice(item.qty * (item.product.price ?? 0))}
                       </span>
                     </div>

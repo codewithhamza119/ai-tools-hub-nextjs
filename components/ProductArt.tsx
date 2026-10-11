@@ -1,4 +1,5 @@
 import type { Product } from '@/lib/products';
+import { bannerFor } from '@/lib/banners';
 
 interface ProductArtProps {
   product: Product;
@@ -7,17 +8,19 @@ interface ProductArtProps {
 
 /**
  * Full-bleed 16:10 product artwork.
- * Renders the product image when available, otherwise a gradient monogram
- * with a soft radial highlight. Always clipped to its own bounds.
+ * Renders the product image when set, otherwise the family banner image,
+ * otherwise a gradient monogram with a soft radial highlight.
+ * Always clipped to its own bounds.
  */
 export default function ProductArt({ product, className = '' }: ProductArtProps) {
   const base = `relative aspect-[16/10] overflow-hidden ${className}`.trim();
+  const src = product.image || bannerFor(product.id);
 
-  if (product.image) {
+  if (src) {
     return (
       <div className={base}>
         <img
-          src={product.image}
+          src={src}
           alt={product.name}
           className="h-full w-full object-cover"
           loading="lazy"

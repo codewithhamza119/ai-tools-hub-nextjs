@@ -38,83 +38,91 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-10 border-t border-white/10">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
-        {/* Brand */}
-        <div>
-          <Logo size={32} />
-          <p className="mt-3 text-sm text-slate-400">{t('footer.tagline')}</p>
-          <div className="mt-4 flex gap-3">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="glass flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-300"
-              >
-                {s.icon}
-              </a>
-            ))}
+    <footer className="mx-auto max-w-6xl px-4 pb-10">
+      <div className="rounded-3xl border border-white/10 bg-[#0a1030] p-8 md:p-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div>
+            <Logo size={36} />
+            <p className="mt-3 text-sm text-slate-400">{t('footer.tagline')}</p>
+            <div className="mt-4 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="glass flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition hover:border-blue-400/40 hover:text-blue-300"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-200">
+              {t('footer.quickLinks')}
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="transition hover:text-blue-300">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Categories */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-200">
+              {t('footer.categories')}
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              {categoryIds.map((id) => (
+                <li key={id}>
+                  <a href="#products" className="transition hover:text-blue-300">
+                    {categoryLabel(id)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-200">
+              {t('footer.contact')}
+            </h4>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-slate-100 transition hover:border-blue-400/40"
+            >
+              <span className="text-emerald-400">
+                <WhatsappIcon />
+              </span>
+              03493634347
+            </a>
           </div>
         </div>
 
-        {/* Quick links */}
-        <div>
-          <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-300">
-            {t('footer.quickLinks')}
-          </h4>
-          <ul className="space-y-2 text-sm text-slate-400">
-            {quickLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="transition hover:text-cyan-300">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Categories */}
-        <div>
-          <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-300">
-            {t('footer.categories')}
-          </h4>
-          <ul className="space-y-2 text-sm text-slate-400">
-            {categoryIds.map((id) => (
-              <li key={id}>
-                <a href="#products" className="transition hover:text-cyan-300">
-                  {categoryLabel(id)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-300">
-            {t('footer.contact')}
-          </h4>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-cyan-300"
-          >
-            <span className="text-emerald-400">
-              <WhatsappIcon />
-            </span>
-            WhatsApp: 03493634347
-          </a>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-xs text-slate-500">
+        {/* Bottom bar */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
           <p>© 2026 AI Tools HuB. {t('footer.rights')}</p>
+          <div className="flex gap-5">
+            <a href="#" className="transition hover:text-blue-300">
+              Terms
+            </a>
+            <a href="#faq" className="transition hover:text-blue-300">
+              Refund/Warranty Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>

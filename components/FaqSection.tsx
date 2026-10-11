@@ -32,18 +32,15 @@ export default function FaqSection() {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 p-4 text-left"
                 >
-                  <span className="font-semibold">{item.q}</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className={`h-5 w-5 shrink-0 text-cyan-300 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
+                  <span className="font-semibold text-white">{item.q}</span>
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl font-bold text-blue-300 transition-transform duration-300 ${
+                      isOpen ? 'rotate-45' : ''
                     }`}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
-                  </svg>
+                    +
+                  </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${

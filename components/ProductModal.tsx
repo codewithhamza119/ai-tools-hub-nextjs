@@ -16,7 +16,7 @@ interface ProductModalProps {
 function CheckIcon() {
   return (
     <svg
-      className="mt-0.5 h-4 w-4 shrink-0 text-teal-300"
+      className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -129,11 +129,11 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
           {/* warranty claim guidance */}
           {showClaim && product.warranty && (
-            <div className="rounded-xl border border-teal-400/40 bg-teal-400/10 px-4 py-3 text-sm glass">
-              <h4 className="mb-1 font-bold text-teal-200">{t('modal.claimTitle')}</h4>
+            <div className="rounded-xl border border-emerald-400/40 bg-emerald-400/10 px-4 py-3 text-sm glass">
+              <h4 className="mb-1 font-bold text-emerald-200">{t('modal.claimTitle')}</h4>
               <p className="text-slate-300">
                 {t('modal.claimText')}
-                <span className="mt-1 block font-semibold text-teal-300">
+                <span className="mt-1 block font-semibold text-emerald-300">
                   {warrantyLabel(product.warranty)}
                 </span>
               </p>

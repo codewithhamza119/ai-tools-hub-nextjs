@@ -48,7 +48,7 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(products)) }}
       />
-      <Hero />
+      <Hero planCount={products.length} />
       <TrustStrip />
       <CatalogSection products={products} />
       <CheckoutSection />
