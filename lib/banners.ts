@@ -9,7 +9,7 @@ const BANNERS: { prefix: string; src: string }[] = [
   { prefix: 'capcut', src: '/images/banners/capcut.jpg' },
   { prefix: 'figma', src: '/images/banners/design.jpg' },
   { prefix: 'nord', src: '/images/banners/vpn.jpg' },
-  { prefix: 'surfshark', src: '/images/banners/vpn.jpg' },
+  { prefix: 'surfshark', src: '/images/banners/surfshark.png' },
   { prefix: 'udemy', src: '/images/banners/learning.jpg' },
 ];
 
